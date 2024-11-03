@@ -27,4 +27,4 @@ class AllTemps(models.Model):
                                  null=True)
     
     def __str__(self):
-        return self.tdate.strftime('%Y-%m-%d: ') + str(self.location) + " High: " + str(self.tmax) + " Low: " + str(self.tmin)
+        return self.tdate + ": " + str(self.location) + " High: " + str(self.tmax) + " Low: " + str(self.tmin)
