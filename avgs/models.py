@@ -10,6 +10,9 @@ class ImportTemps(models.Model):
     tmin = models.IntegerField(null=True)
     tobs = models.IntegerField(null=True)
 
+    def __str__(self):
+        return self.location + " " + str(self.tdate) + " " + str(self.tmax) + " " + str(self.tmin)
+
 class Station(models.Model):
     station = models.CharField(max_length=32)
     description = models.CharField(max_length=64)
