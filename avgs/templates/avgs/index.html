@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+    <h1>Select the Temperature Averages</h1>
+    <ul>
+        <li><a href="{% url 'daily' id=1 %}?date">View Daily Avgs for Today's Date</a></li>
+        <li><a href="{% url 'summary' id=2 %}?month=August">Select Date for Daily Avgs</a></li>
+        <li><a href="{% url 'report' id=3 %}?year=2023">View overall Avgs</a></li>
+    </ul>
+</body>
+</html>

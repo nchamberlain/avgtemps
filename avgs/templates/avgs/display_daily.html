@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ type }} View</title>
+</head>
+<body>
+    <h1>{{ type }} for ID: {{ id }}</h1>
+    <p>Month - Year: {{ mon }} - {{ day }} </p>
+    <p>Today, {{ mon }}/{{ day }}, {{ yr }} in {{ loc }} </p>
+    <p>The overall average high temp was {{ today_avg.tmax__avg }} </p>
+    <p>The overall average low temp was {{ today_avg.tmin__avg }} </p>
+    <p>The overall highest temp was {{ today_avg.tmax__max }} </p>
+    <p>The lowest overall high temp was {{ today_avg.tmax__min}} </p>
+    <p>The overall lowest temp was {{ today_avg.tmin__min }} </p>
+    <p>The highest overall low temp was {{ today_avg.tmin__max }} </p>
+</body>
+</html>
