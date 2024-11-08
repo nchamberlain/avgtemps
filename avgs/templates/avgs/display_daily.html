@@ -3,16 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ type }} View</title>
+    <style>
+        table {border: 1px solid black;}
+        th {border: 1px solid black;}
+        td {border: 1px solid black;}
+    </style>
 </head>
 <body>
     <h1>{{ type }} for ID: {{ id }}</h1>
     <p>Month - Year: {{ mon }} - {{ day }} </p>
     <p>Today, {{ mon }}/{{ day }}, {{ yr }} in {{ loc }} </p>
-    <p>The overall average high temp was {{ today_avg.tmax__avg }} </p>
-    <p>The overall average low temp was {{ today_avg.tmin__avg }} </p>
+    <p>The overall average high temp was {{ today_avg.tmax__avg|floatformat:0 }} </p>
+    <p>The overall average low temp was {{ today_avg.tmin__avg|floatformat:0 }} </p>
     <p>The overall highest temp was {{ today_avg.tmax__max }} </p>
     <p>The lowest overall high temp was {{ today_avg.tmax__min}} </p>
     <p>The overall lowest temp was {{ today_avg.tmin__min }} </p>
     <p>The highest overall low temp was {{ today_avg.tmin__max }} </p>
+    <table>
+        <tr>
+            <th></th>
+            <th>1910</th>
+            <th>1920</th>
+            <th>1930</th>
+            <th>1940</th>
+            <th>1950</th>
+            <th>1960</th>
+            <th>1970</th>
+            <th>1980</th>
+            <th>1990</th>
+            <th>2000</th>
+            <th>2010</th>
+            <th>2020</th>
+        </tr>
+        <tr>
+            <td>Avg Hi</td>
+            <td> {{ decade1910.tmax__avg|floatformat:0 }}</td>
+            <td> {{ decade1920.tmax__avg|floatformat:0 }}</td>
+            <td> {{ decade1930.tmax__avg|floatformat:0 }}</td>
+            <td> {{ decade1940.tmax__avg|floatformat:0 }}</td>
+            <td> {{ decade1950.tmax__avg|floatformat:0 }}</td>
+            <td> {{ decade1960.tmax__avg|floatformat:0 }}</td>
+            <td> {{ decade1970.tmax__avg|floatformat:0 }}</td>
+            <td> {{ decade1980.tmax__avg|floatformat:0 }}</td>
+            <td> {{ decade1990.tmax__avg|floatformat:0 }}</td>
+            <td> {{ decade2000.tmax__avg|floatformat:0 }}</td>
+            <td> {{ decade2010.tmax__avg|floatformat:0 }}</td>
+            <td> {{ decade2020.tmax__avg|floatformat:0 }}</td>
+        </tr>
+        <tr>
+            <td>Avg Low</td>
+            <td> {{ decade1910.tmin__avg|floatformat:0 }}</td>
+            <td> {{ decade1920.tmin__avg|floatformat:0 }}</td>
+            <td> {{ decade1930.tmin__avg|floatformat:0 }}</td>            
+            <td> {{ decade1940.tmin__avg|floatformat:0 }}</td>
+            <td> {{ decade1950.tmin__avg|floatformat:0 }}</td>            
+            <td> {{ decade1960.tmin__avg|floatformat:0 }}</td>
+            <td> {{ decade1970.tmin__avg|floatformat:0 }}</td>            
+            <td> {{ decade1980.tmin__avg|floatformat:0 }}</td>
+            <td> {{ decade1990.tmin__avg|floatformat:0 }}</td>            
+            <td> {{ decade2000.tmin__avg|floatformat:0 }}</td>
+            <td> {{ decade2010.tmin__avg|floatformat:0 }}</td>            
+            <td> {{ decade2020.tmin__avg|floatformat:0 }}</td>          
+        </tr>
+        <tr>
+            <td>Highest High</td>
+            <td>{{ decade1910.tmax__max}} </td>
+            <td>{{ decade1920.tmax__max}} </td>
+            <td>{{ decade1930.tmax__max}} </td>
+            <td>{{ decade1940.tmax__max}} </td>
+            <td>{{ decade1950.tmax__max}} </td>
+            <td>{{ decade1960.tmax__max}} </td>
+            <td>{{ decade1970.tmax__max}} </td>
+            <td>{{ decade1980.tmax__max}} </td>
+            <td>{{ decade1990.tmax__max}} </td>
+            <td>{{ decade2000.tmax__max}} </td>
+            <td>{{ decade2010.tmax__max}} </td>
+            <td>{{ decade2020.tmax__max}} </td>
+        </tr>
+        <tr>
+            <td>Lowest High</td>
+            <td>{{ decade1910.tmax__min}} </td>
+            <td>{{ decade1920.tmax__min}} </td>
+            <td>{{ decade1930.tmax__min}} </td>
+            <td>{{ decade1940.tmax__min}} </td>
+            <td>{{ decade1950.tmax__min}} </td>
+            <td>{{ decade1960.tmax__min}} </td>
+            <td>{{ decade1970.tmax__min}} </td>
+            <td>{{ decade1980.tmax__min}} </td>
+            <td>{{ decade1990.tmax__min}} </td>
+            <td>{{ decade2000.tmax__min}} </td>
+            <td>{{ decade2010.tmax__min}} </td>
+            <td>{{ decade2020.tmax__min}} </td>
+        </tr>
+        <tr>
+            <td>Highest Low</td>
+            <td>{{ decade1910.tmin__max}} </td>
+            <td>{{ decade1920.tmin__max}} </td>
+            <td>{{ decade1930.tmin__max}} </td>
+            <td>{{ decade1940.tmin__max}} </td>
+            <td>{{ decade1950.tmin__max}} </td>
+            <td>{{ decade1960.tmin__max}} </td>
+            <td>{{ decade1970.tmin__max}} </td>
+            <td>{{ decade1980.tmin__max}} </td>
+            <td>{{ decade1990.tmin__max}} </td>
+            <td>{{ decade2000.tmin__max}} </td>
+            <td>{{ decade2010.tmin__max}} </td>
+            <td>{{ decade2020.tmin__max}} </td>
+        </tr>
+        <tr>
+            <td>Lowest Low</td>
+            <td>{{ decade1910.tmin__min}} </td>
+            <td>{{ decade1920.tmin__min}} </td>
+            <td>{{ decade1930.tmin__min}} </td>
+            <td>{{ decade1940.tmin__min}} </td>
+            <td>{{ decade1950.tmin__min}} </td>
+            <td>{{ decade1960.tmin__min}} </td>
+            <td>{{ decade1970.tmin__min}} </td>
+            <td>{{ decade1980.tmin__min}} </td>
+            <td>{{ decade1990.tmin__min}} </td>
+            <td>{{ decade2000.tmin__min}} </td>
+            <td>{{ decade2010.tmin__min}} </td>
+            <td>{{ decade2010.tmin__min}} </td>
+        </tr>
+    </table>
 </body>
 </html>
