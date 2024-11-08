@@ -25,117 +25,17 @@ def daily(request, id):
                              Min('tmax'), 
                              Min('tmin'), 
                              Max('tmin')))
-    decade1910 = (ImportTemps.objects.filter(location__startswith=loc)
-                  .filter(tdate__year__contains='191')
-                  .filter(tdate__month=mon)
-                  .filter(tdate__day=day)
-                  .aggregate(Avg("tmax"), 
-                             Avg('tmin'), 
-                             Max('tmax'), 
-                             Min('tmax'), 
-                             Min('tmin'), 
-                             Max('tmin')))
-    decade1920 = (ImportTemps.objects.filter(location__startswith=loc)
-                  .filter(tdate__year__contains='192')
-                  .filter(tdate__month=mon)
-                  .filter(tdate__day=day)
-                  .aggregate(Avg("tmax"), 
-                             Avg('tmin'), 
-                             Max('tmax'), 
-                             Min('tmax'), 
-                             Min('tmin'), 
-                             Max('tmin')))
-    decade1930 = (ImportTemps.objects.filter(location__startswith=loc)
-                  .filter(tdate__year__contains='193')
-                  .filter(tdate__month=mon)
-                  .filter(tdate__day=day)
-                  .aggregate(Avg("tmax"), 
-                             Avg('tmin'), 
-                             Max('tmax'), 
-                             Min('tmax'), 
-                             Min('tmin'), 
-                             Max('tmin')))
-    decade1940 = (ImportTemps.objects.filter(location__startswith=loc)
-                  .filter(tdate__year__contains='194')
-                  .filter(tdate__month=mon)
-                  .filter(tdate__day=day)
-                  .aggregate(Avg("tmax"), 
-                             Avg('tmin'), 
-                             Max('tmax'), 
-                             Min('tmax'), 
-                             Min('tmin'), 
-                             Max('tmin')))
-    decade1950 = (ImportTemps.objects.filter(location__startswith=loc)
-                  .filter(tdate__year__contains='195')
-                  .filter(tdate__month=mon)
-                  .filter(tdate__day=day)
-                  .aggregate(Avg("tmax"), 
-                             Avg('tmin'), 
-                             Max('tmax'), 
-                             Min('tmax'), 
-                             Min('tmin'), 
-                             Max('tmin')))
-    decade1960 = (ImportTemps.objects.filter(location__startswith=loc)
-                  .filter(tdate__year__contains='196')
-                  .filter(tdate__month=mon)
-                  .filter(tdate__day=day)
-                  .aggregate(Avg("tmax"), 
-                             Avg('tmin'), 
-                             Max('tmax'), 
-                             Min('tmax'), 
-                             Min('tmin'), 
-                             Max('tmin')))
-    decade1970 = (ImportTemps.objects.filter(location__startswith=loc)
-                  .filter(tdate__year__contains='197')
-                  .filter(tdate__month=mon)
-                  .filter(tdate__day=day)
-                  .aggregate(Avg("tmax"), 
-                             Avg('tmin'), 
-                             Max('tmax'), 
-                             Min('tmax'), 
-                             Min('tmin'), 
-                             Max('tmin')))
-    decade1980 = (ImportTemps.objects.filter(location__startswith=loc)
-                  .filter(tdate__year__contains='198')
-                  .filter(tdate__month=mon)
-                  .filter(tdate__day=day)
-                  .aggregate(Avg("tmax"), 
-                             Avg('tmin'), 
-                             Max('tmax'), 
-                             Min('tmax'), 
-                             Min('tmin'), 
-                             Max('tmin')))
-    decade1990 = (ImportTemps.objects.filter(location__startswith=loc)
-                  .filter(tdate__year__contains='199')
-                  .filter(tdate__month=mon)
-                  .filter(tdate__day=day)
-                  .aggregate(Avg("tmax"), 
-                             Avg('tmin'), 
-                             Max('tmax'), 
-                             Min('tmax'), 
-                             Min('tmin'), 
-                             Max('tmin')))
-    decade2000 = ImportTemps.objects.filter(tdate__contains='200').filter(location__startswith=loc).filter(tdate__month=mon).filter(tdate__day=day).aggregate(Avg("tmax"),Avg('tmin'), Max('tmax'), Min('tmax'), Min('tmin'), Max('tmin'))
-    decade2010 = (ImportTemps.objects.filter(location__startswith=loc)
-                  .filter(tdate__year__contains='201')
-                  .filter(tdate__month=mon)
-                  .filter(tdate__day=day)
-                  .aggregate(Avg("tmax"), 
-                             Avg('tmin'), 
-                             Max('tmax'), 
-                             Min('tmax'), 
-                             Min('tmin'), 
-                             Max('tmin')))
-   # decade2020 = (ImportTemps.objects.filter(location__startswith=loc)
-   #               .filter(tdate__year__contains='202')
-   #               .filter(tdate__month=mon)
-   #               .filter(tdate__day=day)
-   #               .aggregate(Avg("tmax"), 
-   #                          Avg('tmin'), 
-   #                          Max('tmax'), 
-   #                          Min('tmax'), 
-   #                          Min('tmin'), 
-   #                          Max('tmin')))
+    decade1910 = calc_decade(loc, '191', mon, day)
+    decade1920 = calc_decade(loc, '192', mon, day)
+    decade1930 = calc_decade(loc, '193', mon, day)
+    decade1940 = calc_decade(loc, '194', mon, day)
+    decade1950 = calc_decade(loc, '195', mon, day)
+    decade1960 = calc_decade(loc, '196', mon, day)
+    decade1970 = calc_decade(loc, '197', mon, day)
+    decade1980 = calc_decade(loc, '198', mon, day)
+    decade1990 = calc_decade(loc, '199', mon, day)
+    decade2000 = calc_decade(loc, '200', mon, day)
+    decade2010 = calc_decade(loc, '201', mon, day)
     decade2020 = calc_decade(loc, '202', mon, day)
     context = {'id': id, 
                'loc':loc,
