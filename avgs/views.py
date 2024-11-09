@@ -11,7 +11,7 @@ from .models import ImportTemps
 #  different pages to display the info
 def daily(request, id):
     date = request.GET.get('date', 'Not Provided')
-    loc = "LOS"  # this will become a param that is passed
+    loc = "SAN"  # this will become a param that is passed
     currentdate = timezone.now() #this will become a param that is passed
     mon = currentdate.month
     day = currentdate.day
@@ -37,6 +37,8 @@ def daily(request, id):
     decade2000 = calc_decade(loc, '200', mon, day)
     decade2010 = calc_decade(loc, '201', mon, day)
     decade2020 = calc_decade(loc, '202', mon, day)
+    hottest10 = calc_hottest10(loc)
+    coldest10 = calc_coldest10(loc)
     context = {'id': id, 
                'loc':loc,
                'mon':mon, 
@@ -55,6 +57,8 @@ def daily(request, id):
                'decade2000': decade2000,
                'decade2010': decade2010,
                'decade2020': decade2020,
+               'hottest10': hottest10,
+               'coldest10': coldest10,
                'type':'Daily Avgs'} #Type is shown in tab title
     return render(request, "avgs/display_daily.html", context)
 
@@ -69,6 +73,12 @@ def calc_decade(loc, dec, mon, day):
                              Min('tmax'), 
                              Min('tmin'), 
                              Max('tmin')))
+
+def calc_hottest10(loc):
+     return ImportTemps.objects.filter(location__startswith=loc).order_by('-tmax')[:10]
+
+def calc_coldest10(loc):
+    return ImportTemps.objects.filter(location__startswith=loc).filter(tmin__gt=-300).order_by('tmin')[:10]
 
 def summary_view(request, id):
     month = request.GET.get('month', 'Not provided')

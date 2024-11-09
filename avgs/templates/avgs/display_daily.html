@@ -11,14 +11,10 @@
 </head>
 <body>
     <h1>{{ type }} for ID: {{ id }}</h1>
-    <p>Month - Year: {{ mon }} - {{ day }} </p>
-    <p>Today, {{ mon }}/{{ day }}, {{ yr }} in {{ loc }} </p>
-    <p>The overall average high temp was {{ today_avg.tmax__avg|floatformat:0 }} </p>
-    <p>The overall average low temp was {{ today_avg.tmin__avg|floatformat:0 }} </p>
-    <p>The overall highest temp was {{ today_avg.tmax__max }} </p>
-    <p>The lowest overall high temp was {{ today_avg.tmax__min}} </p>
-    <p>The overall lowest temp was {{ today_avg.tmin__min }} </p>
-    <p>The highest overall low temp was {{ today_avg.tmin__max }} </p>
+    <p>Today is {{ mon }}/{{ day }}, {{ yr }} in {{ loc }} </p>
+    <p>The overall average high/low temp for this day was {{ today_avg.tmax__avg|floatformat:0 }}/{{ today_avg.tmin__avg|floatformat:0 }} </p>
+    <p>The overall highest/lowest HIGH temp was for this day {{ today_avg.tmax__max }}/{{ today_avg.tmax__min}} </p>
+    <p>The overall highest/lowest LOW temp was for this day {{ today_avg.tmin__max }}/{{ today_avg.tmin__min }} </p>
     <table>
         <tr>
             <th></th>
@@ -125,6 +121,30 @@
             <td>{{ decade2010.tmin__min}} </td>
             <td>{{ decade2010.tmin__min}} </td>
         </tr>
+    </table>
+    <h2>Top 10 HIGHEST Temps for {{ loc }}</h2>
+    <table>
+        <tr>
+            <th>Date</th><th>Temperature</th>
+        </tr>
+        {% for x in hottest10 %}
+        <tr>
+            <td> {{ x.tdate }} </td>
+            <td> {{ x.tmax }} </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h2>Top 10 LOWEST Temps for {{ loc }}</h2>
+    <table>
+        <tr>
+            <th>Date</th><th>Temperature</th>
+        </tr>
+        {% for x in coldest10 %}
+        <tr>
+            <td> {{ x.tdate }} </td>
+            <td> {{ x.tmin }} </td>
+        </tr>
+        {% endfor %}
     </table>
 </body>
 </html>
