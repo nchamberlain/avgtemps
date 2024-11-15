@@ -16,6 +16,12 @@ def daily(request, id):
     mon = currentdate.month
     day = currentdate.day
     yr = currentdate.year
+    #next 6 lines = learning about sessions
+    num_visits = request.session.get('num_visits', 0)
+    num_visits += 1
+    request.session['num_visits'] = num_visits
+    visitor_name = request.session.get('visitor_name', 'Nelson')
+    visitor_name = request.session['visitor_name'] = 'Freddie'
     today_avg = (ImportTemps.objects.filter(location__startswith=loc)
                   .filter(tdate__month=mon)
                   .filter(tdate__day=day)
@@ -59,6 +65,8 @@ def daily(request, id):
                'decade2020': decade2020,
                'hottest10': hottest10,
                'coldest10': coldest10,
+               'num_visits': num_visits,
+               'visitor_name': visitor_name,
                'type':'Daily Avgs'} #Type is shown in tab title
     return render(request, "avgs/display_daily.html", context)
 

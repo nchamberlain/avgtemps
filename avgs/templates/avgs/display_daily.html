@@ -10,7 +10,7 @@
     </style>
 </head>
 <body>
-    <h1>{{ type }} for ID: {{ id }}</h1>
+    <h1>{{ type }} for: {{ visitor_name }}: Nbr of Visits: {{ num_visits }} </h1>
     <p>Today is {{ mon }}/{{ day }}, {{ yr }} in {{ loc }} </p>
     <p>The overall average high/low temp for this day was {{ today_avg.tmax__avg|floatformat:0 }}/{{ today_avg.tmin__avg|floatformat:0 }} </p>
     <p>The overall highest/lowest HIGH temp was for this day {{ today_avg.tmax__max }}/{{ today_avg.tmax__min}} </p>
