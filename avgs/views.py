@@ -4,14 +4,13 @@ from django.utils import timezone
 from django.db.models import Avg, Max, Min
 from .models import ImportTemps
 
-#path="" on basicsite.urls.py calls avgs.urls.py which calls index_views.html to be
-#  returned to the browser. When the user selects option 1, 2, or 3, it hrefs to one
+#path="" on basicsite.urls.py calls avgs.urls.py which calls def index_view which renders
+#  index.html for the browser. When the user selects option 1, 2, or 3, it hrefs to one
 #  of these 3 functions based on option selected. These in turn get the necessary
-#  info and render the display.html with this info but could just as easily call
-#  different pages to display the info
+#  info and render the appropriate page (display_daily.html, display.html, etc)
 def daily(request, id):
     date = request.GET.get('date', 'Not Provided')
-    loc = "SAN"  # this will become a param that is passed
+    loc = "SAN A"  # this will become a param that is passed
     currentdate = timezone.now() #this will become a param that is passed
     mon = currentdate.month
     day = currentdate.day
@@ -90,5 +89,6 @@ def report_view(request, id):
     context = {'id': id, 'date': year, 'type': 'Overall Avgs'}
     return render(request, 'avgs/display.html', context)
 
+# This func is called when main site visited with path="" and displays main index page
 def index_view(request):
   	return render(request, 'avgs/index.html')

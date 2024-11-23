@@ -1,11 +1,13 @@
-<!doctype html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8" />
-    <title>Daily Avgs</title>
-  </head>
-  <body>
-    <h1>Average Temps for {{station.location}}</h1>
+{% extends "avgs/base.html" %}
+
+{% block title %}Average Temperature for Today{% endblock %}
+
+<!-- base.html gets to <body> before referencing block content-->
+{% block content %}
+<h1>Average Temps for {{station.location}}</h1>
+
+{% endblock %}
+
 
   </body>
-</html>
+</html>  
