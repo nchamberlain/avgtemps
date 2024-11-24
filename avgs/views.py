@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404, render
 from django.utils import timezone
 from django.db.models import Avg, Max, Min
 from .models import ImportTemps
+from .forms import CitiesForm
 
 #path="" on basicsite.urls.py calls avgs.urls.py which calls def index_view which renders
 #  index.html for the browser. When the user selects option 1, 2, or 3, it hrefs to one
@@ -28,7 +29,7 @@ def daily(request, id):
                              Avg('tmin'), 
                              Max('tmax'), 
                              Min('tmax'), 
-                             Min('tmin'), 
+                             Min  ('tmin'), 
                              Max('tmin')))
     decade1910 = calc_decade(loc, '191', mon, day)
     decade1920 = calc_decade(loc, '192', mon, day)
@@ -99,4 +100,5 @@ def report_view(request, id):
 
 # This func is called when main site visited with path="" and displays main index page
 def index_view(request):
-  	return render(request, 'avgs/index.html')
+    form = CitiesForm()
+    return render(request, 'avgs/index.html', {'form':form})

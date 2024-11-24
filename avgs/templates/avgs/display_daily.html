@@ -6,8 +6,8 @@
     <h1>{{ type }} for {{ loc }}</h1>
     <p>Today is {{ mon }}/{{ day }}, {{ yr }} in {{ loc }} </p>
     <p>The overall average high/low temp for this day was {{ today_avg.tmax__avg|floatformat:0 }}/{{ today_avg.tmin__avg|floatformat:0 }} </p>
-    <p>The overall highest/lowest HIGH temp was for this day {{ today_avg.tmax__max }}/{{ today_avg.tmax__min}} </p>
-    <p>The overall highest/lowest LOW temp was for this day {{ today_avg.tmin__max }}/{{ today_avg.tmin__min }} </p>
+    <p>The overall highest/lowest HIGH temp was for this day was {{ today_avg.tmax__max }}/{{ today_avg.tmax__min}} </p>
+    <p>The overall highest/lowest LOW temp was for this day was {{ today_avg.tmin__max }}/{{ today_avg.tmin__min }} </p>
     <table>
         <tr>
             <th></th>
@@ -25,7 +25,7 @@
             <th>2020</th>
         </tr>
         <tr>
-            <td>Avg Hi</td>
+            <th>Avg Hi</th>
             <td> {{ decade1910.tmax__avg|floatformat:0 }}</td>
             <td> {{ decade1920.tmax__avg|floatformat:0 }}</td>
             <td> {{ decade1930.tmax__avg|floatformat:0 }}</td>
@@ -40,7 +40,7 @@
             <td> {{ decade2020.tmax__avg|floatformat:0 }}</td>
         </tr>
         <tr>
-            <td>Avg Low</td>
+            <th>Avg Low</th>
             <td> {{ decade1910.tmin__avg|floatformat:0 }}</td>
             <td> {{ decade1920.tmin__avg|floatformat:0 }}</td>
             <td> {{ decade1930.tmin__avg|floatformat:0 }}</td>            
@@ -55,7 +55,7 @@
             <td> {{ decade2020.tmin__avg|floatformat:0 }}</td>          
         </tr>
         <tr>
-            <td>Highest High</td>
+            <th>Highest High</th>
             <td>{{ decade1910.tmax__max}} </td>
             <td>{{ decade1920.tmax__max}} </td>
             <td>{{ decade1930.tmax__max}} </td>
@@ -70,7 +70,7 @@
             <td>{{ decade2020.tmax__max}} </td>
         </tr>
         <tr>
-            <td>Lowest High</td>
+            <th>Lowest High</th>
             <td>{{ decade1910.tmax__min}} </td>
             <td>{{ decade1920.tmax__min}} </td>
             <td>{{ decade1930.tmax__min}} </td>
@@ -85,7 +85,7 @@
             <td>{{ decade2020.tmax__min}} </td>
         </tr>
         <tr>
-            <td>Highest Low</td>
+            <th>Highest Low</th>
             <td>{{ decade1910.tmin__max}} </td>
             <td>{{ decade1920.tmin__max}} </td>
             <td>{{ decade1930.tmin__max}} </td>
@@ -100,7 +100,7 @@
             <td>{{ decade2020.tmin__max}} </td>
         </tr>
         <tr>
-            <td>Lowest Low</td>
+            <th>Lowest Low</th>
             <td>{{ decade1910.tmin__min}} </td>
             <td>{{ decade1920.tmin__min}} </td>
             <td>{{ decade1930.tmin__min}} </td>
