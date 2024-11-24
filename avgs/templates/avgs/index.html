@@ -1,15 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Index</title>
-</head>
-<body>
-    <h1>Select the Temperature Averages</h1>
+{% extends "avgs/base.html" %}
+
+{% block title %}Home Avg Temps{% endblock %}
+
+{% block content %}
+    <h1>Welcome to the Temperature Averages website</h1>
+    <p>When the weather people report that today is going to be a few degrees above or below average, how many years in the past are they including in that average? Do they mean the past 3 years, past 30 years, the past 100 years?</p>
+    <p>This web site provides a number of ways understand the weather history for various cities in the US based on historical data from <a href="https://www.ncei.noaa.gov/cdo-web/search">NOAA National Centers for Environmental Informaion.</a> </p>
+    <p>As much as possible, each city's historical weather data was collected dating back to the 1900's. The weather data collection location within each city normally changed several times in the past 120 years so the data was assembled from the closest locations within each city.</p>
+    <p><strong>IMPORTANT!</strong> The numbers presented on this web site are for entertainment value only and should not be interpreted or misconstrued as absolute facts. Please refer to actual climate experts for more accurate weather information.</p>
+    <h3>First, select a city from the list below</h3>
+    {{ form }}
+    <h3>Next, select how to view the weather data</h3>
     <ul>
         <li><a href="{% url 'daily' id=1 %}?date">View Daily Avgs for Today's Date</a></li>
         <li><a href="{% url 'summary' id=2 %}?month=August">Select Date for Daily Avgs</a></li>
         <li><a href="{% url 'report' id=3 %}?year=2023">View overall Avgs</a></li>
     </ul>
-</body>
+{% endblock %}
+  </body>
 </html>
