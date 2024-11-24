@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ type }} View</title>
-    <style>
-        table {border: 1px solid black;}
-        th {border: 1px solid black;}
-        td {border: 1px solid black;}
-    </style>
-</head>
-<body>
-    <h1>{{ type }} for: {{ visitor_name }}: Nbr of Visits: {{ num_visits }} </h1>
+{% extends "avgs/base.html" %}
+
+{% block title %}Avg Temp for Today{% endblock %}
+
+{% block content %}
+    <h1>{{ type }} for {{ loc }}</h1>
     <p>Today is {{ mon }}/{{ day }}, {{ yr }} in {{ loc }} </p>
     <p>The overall average high/low temp for this day was {{ today_avg.tmax__avg|floatformat:0 }}/{{ today_avg.tmin__avg|floatformat:0 }} </p>
     <p>The overall highest/lowest HIGH temp was for this day {{ today_avg.tmax__max }}/{{ today_avg.tmax__min}} </p>
@@ -146,5 +139,6 @@
         </tr>
         {% endfor %}
     </table>
-</body>
+{% endblock %}
+  </body>
 </html>

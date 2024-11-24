@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>{% block title %}Base Title{% endblock %}</title>
+    <!-- Stylesheet has to follow the above info or get a complaint --> 
+    {% load static %}    
+    <link rel="stylesheet" href={% static "avgs/avgs_styles.css" %}>
+    <!-- <link rel="shortcut icon" type="image/png" href="{% static 'main/favicon.png' %}" > -->
+  </head
+  <body>  
+
+{% block content %} 
+{% endblock %}
+  </body>
+</html>
