@@ -1,18 +1,18 @@
 from django import forms
 
 FAVORITE_CITIES_CHOICES = [
-    ('CHICA', 'Chicago, IL'),
-    ('DALLA', 'Dallas, TX'),
-    ('FAIRB', 'Fairbanks, AK'),
-    ('HOUST', 'Houston, TX'),
-    ('LOS A', 'Los Angeles, CA'),
-    ('MINNE', "Minneapolis, MN"),
-    ('NEW Y', "New York City, NY"),
-    ('PHILA', 'Philadelphia, PA'),
-    ('PHOEN', 'Phoenix, AZ'),
-    ('SAN A', "San Antonio, TX"),
-    ('SAN D', "San Diego, CA"), 
-    ('SAN F', "San Francisco, CA")
+    ('CHICAGO', 'Chicago, IL'),
+    ('DALLAS', 'Dallas, TX'),
+    ('FAIRBANKS', 'Fairbanks, AK'),
+    ('HOUSTON', 'Houston, TX'),
+    ('LOS ANGELES', 'Los Angeles, CA'),
+    ('MINNEAPOLIS', "Minneapolis, MN"),
+    ('NEW YORK CITY', "New York City, NY"),
+    ('PHILADELPHIA', 'Philadelphia, PA'),
+    ('PHOENIX', 'Phoenix, AZ'),
+    ('SAN ANTONIO', "San Antonio, TX"),
+    ('SAN DIEGO', "San Diego, CA"), 
+    ('SAN FRANCISCO', "San Francisco, CA"),
 ]
 
 class CitiesForm(forms.Form):

@@ -9,7 +9,11 @@
     <p>As much as possible, each city's historical weather data was collected dating back to the 1900's. The weather data collection location within each city normally changed several times in the past 120 years so the data was assembled from the closest locations within each city.</p>
     <p><strong>IMPORTANT!</strong> The numbers presented on this web site are for entertainment value only and should not be interpreted or misconstrued as absolute facts. Please refer to actual climate experts for more accurate weather information.</p>
     <h3>First, select a city from the list below</h3>
-    {{ form }}
+    <form method="post" action="{% url 'daily' id=1 %}">
+      {% csrf_token %}
+      {{ form }}
+      <input type="submit" value="submit">
+    </form>
     <h3>Next, select how to view the weather data</h3>
     <ul>
         <li><a href="{% url 'daily' id=1 %}?date">View Daily Avgs for Today's Date</a></li>

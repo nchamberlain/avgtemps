@@ -10,8 +10,10 @@ from .forms import CitiesForm
 #  of these 3 functions based on option selected. These in turn get the necessary
 #  info and render the appropriate page (display_daily.html, display.html, etc)
 def daily(request, id):
-    date = request.GET.get('date', 'Not Provided')
-    loc = "SAN A"  # this will become a param that is passed
+    date = request.POST.get('date', 'Not Provided')
+    location = request.POST.get('favorite_city', 'No City Provided')
+    loc = location[:5]
+    location=location.title()
     currentdate = timezone.now() #this will become a param that is passed
     mon = currentdate.month
     day = currentdate.day
@@ -59,6 +61,8 @@ def daily(request, id):
                'decade2020': decade2020,
                'hottest10': hottest10,
                'coldest10': coldest10,
+               'date': date,
+               'location': location,
                'type':'Daily Avgs'} #Type is shown in tab title
     return render(request, "avgs/display_daily.html", context)
 
