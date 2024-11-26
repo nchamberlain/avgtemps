@@ -1,10 +1,10 @@
 {% extends "avgs/base.html" %}
 
-{% block title %}Avg Temp for Today {% endblock %}
+{% block title %}Avg Temps {% endblock %}
 
 {% block content %}
-    <h1>{{ type }} for {{ location }}</h1>
-    <!-- <p>Today is {{ mon }}/{{ day }}, {{ yr }} in {{ location }} </p> -->
+    <h1>{{ type }} for {{ location }} on {{ mon_long }} {{ day }}, 1910-2030</h1>
+    <!-- <p>Today is {{ mon_long }} {{ day }}, {{ yr }} in {{ location }} </p> KEEP THIS LINE FOR TROUBLESHOOTING -->
     <p>The overall average high/low temp for this day was {{ today_avg.tmax__avg|floatformat:0 }}/{{ today_avg.tmin__avg|floatformat:0 }} </p>
     <p>The overall highest/lowest HIGH temp was for this day was {{ today_avg.tmax__max }}/{{ today_avg.tmax__min}} </p>
     <p>The overall highest/lowest LOW temp was for this day was {{ today_avg.tmin__max }}/{{ today_avg.tmin__min }} </p>
