@@ -13,3 +13,19 @@ p {
 table, th, td {
     border: 1px solid black;
 }
+input[type="submit"] {
+    margin-top: 20px;
+    margin-left: 140px;
+    font-size:large;
+}
+input[type="text"] {
+    width: 100px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: large;
+}
+label {
+    width: 140px;
+    text-align: right;
+    display: inline-block;
+}

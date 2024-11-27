@@ -4,24 +4,27 @@ from django.utils import timezone
 from django.db.models import Avg, Max, Min
 from .models import ImportTemps
 from .forms import CitiesForm
+from datetime import datetime, date
 
 #path="" on basicsite.urls.py calls avgs.urls.py which calls def index_view which renders
 #  index.html for the browser. When the user selects option 1, 2, or 3, it hrefs to one
 #  of these 3 functions based on option selected. These in turn get the necessary
 #  info and render the appropriate page (display_daily.html, display.html, etc)
 def daily(request, id):
-    date = request.GET.get('date', 'Not Provided')
-    loc = "SAN A"  # this will become a param that is passed
-    currentdate = timezone.now() #this will become a param that is passed
-    mon = currentdate.month
-    day = currentdate.day
-    yr = currentdate.year
-    #next 6 lines = learning about sessions
-    num_visits = request.session.get('num_visits', 0)
-    num_visits += 1
-    request.session['num_visits'] = num_visits
-    visitor_name = request.session.get('visitor_name', 'Nelson')
-    visitor_name = request.session['visitor_name'] = 'Freddie'
+    the_day = request.POST.get('the_day', 'Not Provided')
+    the_month = request.POST.get('the_month', 'Not Provided')
+    location = request.POST.get('favorite_city', 'No City Provided')
+    loc = location[:5]
+    location=location.title()
+    #currentdate = timezone.now() #this will become a param that is passed
+    #currentdate = datetime.strptime(date, '%m-%d-%Y')
+    #mon_long = currentdate.strftime("%B")
+    mon = the_month   #currentdate.month
+    lmon = ("0" + mon)[-2:]
+    day = the_day     #currentdate.day
+    lday = ("0" + day)[-2:]
+    yr = "2024"       #currentdate.year
+    mon_long = date.fromisoformat(yr+lmon+lday).strftime("%B")
     today_avg = (ImportTemps.objects.filter(location__startswith=loc)
                   .filter(tdate__month=mon)
                   .filter(tdate__day=day)
@@ -46,7 +49,9 @@ def daily(request, id):
     hottest10 = calc_hottest10(loc)
     coldest10 = calc_coldest10(loc)
     context = {'id': id, 
+               'location': location,
                'loc':loc,
+               'mon_long': mon_long,
                'mon':mon, 
                'day':day, 
                'yr': yr,
@@ -65,8 +70,7 @@ def daily(request, id):
                'decade2020': decade2020,
                'hottest10': hottest10,
                'coldest10': coldest10,
-               'num_visits': num_visits,
-               'visitor_name': visitor_name,
+               #'date': date,
                'type':'Daily Avgs'} #Type is shown in tab title
     return render(request, "avgs/display_daily.html", context)
 
