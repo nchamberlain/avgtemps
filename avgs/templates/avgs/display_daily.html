@@ -115,10 +115,10 @@
             <td>{{ decade2010.tmin__min}} </td>
         </tr>
     </table>
-    <h2>Top 10 HIGHEST Temps for {{ location }}</h2>
+    <h2>Top 10 HIGHEST Temperatures for {{ location }}</h2>
     <table>
         <tr>
-            <th>Date</th><th>Temperature</th>
+            <th>Date</th><th>Temp&deg;F</th>
         </tr>
         {% for x in hottest10 %}
         <tr>
@@ -127,10 +127,10 @@
         </tr>
         {% endfor %}
     </table>
-    <h2>Top 10 LOWEST Temps for {{ location }}</h2>
+    <h2>Top 10 LOWEST Temperatures for {{ location }}</h2>
     <table>
         <tr>
-            <th>Date</th><th>Temperature</th>
+            <th>Date</th><th>Temp&deg;F</th>
         </tr>
         {% for x in coldest10 %}
         <tr>

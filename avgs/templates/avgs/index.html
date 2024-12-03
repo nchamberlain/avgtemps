@@ -6,7 +6,7 @@
     <h1>Welcome to the Temperature Averages website</h1>
     <p>When the weather people report that today is going to be a few degrees above or below average, how many years in the past are they including in that average? Do they mean the past 3 years, past 30 years, the past 100 years?</p>
     <p>This web site provides a number of ways understand the weather history for various cities in the US based on historical data from <a href="https://www.ncei.noaa.gov/cdo-web/search">NOAA National Centers for Environmental Informaion.</a> </p>
-    <h3>Please select a city from the list below. Optionally, select a different date than today's date</h3>
+    <p><strong>To begin,</strong> please select a city from the list below. If you want a <strong>different date</strong> than today's date, please adjust the dropdown selctors. <strong>When done</strong> with your selections, please press the Submit button.</p>
     <form method="post" action="{% url 'daily' id=1 %}">
       {% csrf_token %}
       {{ form }}
