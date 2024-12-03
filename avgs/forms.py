@@ -3,18 +3,27 @@ from datetime import datetime
 from django.forms.widgets import NumberInput
 
 FAVORITE_CITIES_CHOICES = [
+    ('BILLINGS', 'Billings, MT'),
+    ('BISMARCK', 'Bismarck, ND'),
     ('CHICAGO', 'Chicago, IL'),
+    ('COLUMBUS', 'Columbus, OH'),
     ('DALLAS', 'Dallas, TX'),
     ('FAIRBANKS', 'Fairbanks, AK'),
     ('HOUSTON', 'Houston, TX'),
+    ('INDIANAPOLIS', 'Indianapolis, IN'),
+    ('JACKSONVILLE','Jacksonville, FL'),
     ('LOS ANGELES', 'Los Angeles, CA'),
     ('MINNEAPOLIS', "Minneapolis, MN"),
+    ('NASHVILLE', 'Nashville, TN'),
     ('NEW YORK CITY', "New York City, NY"),
+    ('OKLAHOMA CITY', 'Oklahoma City, OK'),
     ('PHILADELPHIA', 'Philadelphia, PA'),
     ('PHOENIX', 'Phoenix, AZ'),
     ('SAN ANTONIO', "San Antonio, TX"),
     ('SAN DIEGO', "San Diego, CA"), 
     ('SAN FRANCISCO', "San Francisco, CA"),
+    ('SEATTLE', 'Seattle, WA'),
+    ('SPOKANE', 'Spokane, WA'),
 ]
 
 THE_MONTH_NBR = [
